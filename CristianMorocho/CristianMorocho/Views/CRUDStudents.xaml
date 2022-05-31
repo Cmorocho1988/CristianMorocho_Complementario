@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CristianMorocho.Views.CRUDStudents">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label Margin="0, 10, 0, 10" Text="CRUD Students" FontSize="30" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" />
+                <StackLayout Orientation="Horizontal">
+                    <Button Text="Crear Estudiante" Clicked="CreateStudenPage" />
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Button Text="Agregar Foto (Camara)" Clicked="OpenCameraSensor" />
+                </StackLayout>
+                
+                <ListView x:Name="std" HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell x:Name="viewCells">
+                                <StackLayout Padding="20, 20, 20, 20">
+                                    <Label Text="{Binding cod_estudiante}" FontSize="21" FontAttributes="Bold" />
+                                    <Label Text="{Binding nombre}" FontSize="21" FontAttributes="Bold" />
+                                    <Label Text="{Binding apellido}" FontSize="16" />
+                                    <Button Text="Eliminar Estudiante" Clicked="DeleteStudent" BindingContext="{Binding cod_estudiante}" />
+                                    <Button Text="Editar Estudiante" Clicked="UpdateUser" BindingContext="{Binding cod_estudiante}" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
